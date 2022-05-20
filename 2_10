@@ -1,0 +1,63 @@
+Задание 1.
+
+#include <iostream>
+#include <list>
+using namespace std;
+
+
+class Ingr{
+public:
+    string name;
+    string calories;
+    string weight;
+    Ingr(string n, int s, int m){
+        name = n;
+        calories = s;
+        weight = m;
+
+    };
+};
+
+
+class food: public Ingr{
+public:
+    list<Ingr*> recipe;
+    food(string n1, int s1, int m1) : Ingr(n1, s1, m1) {
+        name = n1;
+        calories = s1;
+        weight = m1;
+
+    };
+    food& visit_card(){
+        cout << "calories: " << calories << endl;
+        cout << "Name: " << name << endl;
+        cout << "Lecture hall: " << weight << endl;
+    }
+};
+
+
+int main(){
+    food pizza(  "pizza", 5000, 500);
+    Ingr cheese( "cheese", 2000, 100);
+    Ingr dough( "dough", 3000, 400);
+
+    pizza.recipe.push_back(&cheese);
+    pizza.recipe.push_back(&dough);
+    return 0;
+}
+
+
+Задание 3.
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    const int n = 4; 
+    int mas[n] = {1,2,3,4};
+    for (int i = 0; i < n; i++)
+    {
+        cout << *(mas + i) << endl;
+    }
+    return 0;
+}
